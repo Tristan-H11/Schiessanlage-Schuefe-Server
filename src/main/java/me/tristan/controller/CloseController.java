@@ -16,7 +16,7 @@ public class CloseController {
     public BahnDTO openA(MessageDTO message) {
         BahnState.BAHN_A.setClosed(false);
         BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
+        result.setCounter(YamlHandler.getA());
         result.setAlert(BahnState.BAHN_A.isAlert());
         result.setClosed(BahnState.BAHN_A.isClosed());
         result.setShot("");
@@ -52,7 +52,7 @@ public class CloseController {
     public BahnDTO closeA(MessageDTO message) {
         BahnState.BAHN_A.setClosed(true);
         BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
+        result.setCounter(YamlHandler.getA());
         result.setAlert(BahnState.BAHN_A.isAlert());
         result.setClosed(BahnState.BAHN_A.isClosed());
         result.setShot("");
