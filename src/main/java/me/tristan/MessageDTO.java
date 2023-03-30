@@ -1,6 +1,7 @@
 package me.tristan;
 
 public class MessageDTO {
+
     private String message;
 
     public void setMessage(String message) {

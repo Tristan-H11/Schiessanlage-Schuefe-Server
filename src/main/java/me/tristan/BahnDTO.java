@@ -2,10 +2,13 @@ package me.tristan;
 
 public class BahnDTO {
 
-    public int counter;
-    public String shot; //großer, kleiner, treffer
-    public boolean closed;
-    public boolean alert;
+    private int counter = 0;
+    private String shot = ""; //großer, kleiner, treffer
+    private boolean closed = true;
+    private boolean alert = false;
+
+    public BahnDTO() {
+    }
 
     public BahnDTO(int counter, String shot, boolean closed, boolean alert) {
         this.counter = counter;
