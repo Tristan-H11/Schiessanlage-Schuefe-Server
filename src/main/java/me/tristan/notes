@@ -1,0 +1,32 @@
+Create all needed java spring boot classes for the following server application. There will be storage in form of a YAML-file containing three counters "A", "B" and "C". The communication has to be with STOMP websockets. In the following topics, substitute the "{Bahn}" with "A", "B" and "C" creating each endpoint three times, matching the logic corresponding to the counters also named "A", "B" and "C".
+When receiving "/deckung{Bahn}/shot", expect a string and match the values "kleiner", "großer", "treffer". In the case of "kleiner", increase the corresponding counter and save it to the yaml-file. Send an answer to "schreiber{Bahn}/shot" giving the string and the current counter value read from the yaml-file.
+When receiving "/deckung{Bahn}/sperrung", expect no parameters and set an internal bool "sperrung" to true and send this bool to "schreiber{Bahn}/sperrung".
+When receiving "/schreiber{Bahn}/freigabe", expect a bool "freigabe", set the value to an internal bool and send this bool to "/deckung{Bahn}/freigabe".
+When receiving "/schreiber{Bahn}/alert", expect no parameters and send a message to "/deckung{Bahn}/alert".
+
+
+
+
+Alle Infos für jede bahn eingehend für die Deckung:
+schießfreigabe : bool
+counter : int
+alert : bool (wenn nicht reagiert wird)
+
+Messages der Deckung ausgehend:
+/deckung{Bahn}/shot -> type: of("kleiner", "großer", "treffer") // Treffer der jeweiligen Bahn
+---> Reaktion an /schreiber{Bahn}/shot -> type: of("kleiner", "großer", "treffer") , counter: int
+/deckung{Bahn}/sperrung -> sperrung: bool // Wenn die Deckung die Bahn sperrt
+---> Reaktion an /schreiber{Bahn}/sperrung -> sperrung: bool
+
+Alle Infos für jede bahn eingehend für die Schreiber:
+Schießfreigabe : bool
+counter : int
+/schreiber{Bahn}/freigabe -> freigabe: bool
+---> Reaktion an /deckung{Bahn}/freigabe -> freigabe: bool
+/schreiber{Bahn}/alert -> none
+---> Reaktion an /deckung{Bahn}/alert -> none
+
+Alle Infos eingehen für die Aufsicht: (die counter)
+bahnA : int
+bahnB : int
+bahnC : int
