@@ -16,7 +16,7 @@ public class AlertController {
     public BahnDTO alertOnA(MessageDTO message) {
         BahnState.BAHN_A.setAlert(true);
         BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
+        result.setCounter(YamlHandler.getA());
         result.setAlert(BahnState.BAHN_A.isAlert());
         result.setClosed(BahnState.BAHN_A.isClosed());
         result.setShot("");
@@ -52,7 +52,7 @@ public class AlertController {
     public BahnDTO alertOffA(MessageDTO message) {
         BahnState.BAHN_A.setAlert(false);
         BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
+        result.setCounter(YamlHandler.getA());
         result.setAlert(BahnState.BAHN_A.isAlert());
         result.setClosed(BahnState.BAHN_A.isClosed());
         result.setShot("");
