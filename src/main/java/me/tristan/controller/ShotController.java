@@ -14,72 +14,60 @@ public class ShotController {
     @MessageMapping("/shotOnA")
     @SendTo("/anClient/updateOnA")
     public BahnDTO shotOnA(MessageDTO message) {
-        BahnDTO result = new BahnDTO();
         switch (message.getMessage()) {
             case "kleiner":
                 YamlHandler.increaseA();
-                result.setShot("kleiner");
+                BahnState.BAHN_A.setLastShot("kleiner");
                 break;
             case "großer":
-                result.setShot("großer");
+                BahnState.BAHN_A.setLastShot("großer");
                 break;
             case "treffer":
-                result.setShot("treffer");
+                BahnState.BAHN_A.setLastShot("treffer");
                 break;
             default:
                 throw new RuntimeException("unknown shot-type on shotOnA");
         }
-        result.setClosed(BahnState.BAHN_A.isClosed());
-        result.setAlert(BahnState.BAHN_A.isAlert());
-        result.setCounter(YamlHandler.getA());
-        return result;
+        return BahnState.getADTO();
     }
 
     @MessageMapping("/shotOnB")
     @SendTo("/anClient/updateOnB")
     public BahnDTO shotOnB(MessageDTO message) {
-        BahnDTO result = new BahnDTO();
         switch (message.getMessage()) {
             case "kleiner":
                 YamlHandler.increaseB();
-                result.setShot("kleiner");
+                BahnState.BAHN_B.setLastShot("kleiner");
                 break;
             case "großer":
-                result.setShot("großer");
+                BahnState.BAHN_B.setLastShot("großer");
                 break;
             case "treffer":
-                result.setShot("treffer");
+                BahnState.BAHN_B.setLastShot("treffer");
                 break;
             default:
                 throw new RuntimeException("unknown shot-type on shotOnB");
         }
-        result.setClosed(BahnState.BAHN_B.isClosed());
-        result.setAlert(BahnState.BAHN_B.isAlert());
-        result.setCounter(YamlHandler.getB());
-        return result;
+        return BahnState.getBDTO();
     }
 
     @MessageMapping("/shotOnC")
     @SendTo("/anClient/updateOnC")
     public BahnDTO shotOnC(MessageDTO message) {
-        BahnDTO result = new BahnDTO();
         switch (message.getMessage()) {
             case "kleiner":
                 YamlHandler.increaseC();
-                result.setShot("kleiner");
+                BahnState.BAHN_C.setLastShot("kleiner");
                 break;
             case "großer":
-                result.setShot("großer");
+                BahnState.BAHN_C.setLastShot("großer");
                 break;
             case "treffer":
-                result.setShot("treffer");
+                BahnState.BAHN_C.setLastShot("treffer");
                 break;
             default:
                 throw new RuntimeException("unknown shot-type on shotOnC");
         }
-        result.setClosed(BahnState.BAHN_C.isClosed());
-        result.setAlert(BahnState.BAHN_C.isAlert());
-        result.setCounter(YamlHandler.getC());
-        return result;
+        return BahnState.getCDTO();
     }
 }

@@ -17,12 +17,7 @@ public class AufsichtController {
             throw new RuntimeException(e);
         }
 
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getA());
-        result.setAlert(BahnState.BAHN_A.isAlert());
-        result.setClosed(BahnState.BAHN_A.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getADTO();
     }
 
     @MessageMapping("/aufsichtSetB")
@@ -34,12 +29,7 @@ public class AufsichtController {
             throw new RuntimeException(e);
         }
 
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
-        result.setAlert(BahnState.BAHN_B.isAlert());
-        result.setClosed(BahnState.BAHN_B.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getBDTO();
     }
 
     @MessageMapping("/aufsichtSetC")
@@ -51,12 +41,7 @@ public class AufsichtController {
             throw new RuntimeException(e);
         }
 
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getC());
-        result.setAlert(BahnState.BAHN_C.isAlert());
-        result.setClosed(BahnState.BAHN_C.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getCDTO();
     }
 
     @MessageMapping("/refreshAufsicht")
