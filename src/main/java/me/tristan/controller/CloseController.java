@@ -15,71 +15,41 @@ public class CloseController {
     @SendTo("/anClient/updateOnA")
     public BahnDTO openA(MessageDTO message) {
         BahnState.BAHN_A.setClosed(false);
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getA());
-        result.setAlert(BahnState.BAHN_A.isAlert());
-        result.setClosed(BahnState.BAHN_A.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getADTO();
     }
 
     @MessageMapping("/openB")
     @SendTo("/anClient/updateOnB")
     public BahnDTO openB(MessageDTO message) {
         BahnState.BAHN_B.setClosed(false);
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
-        result.setAlert(BahnState.BAHN_B.isAlert());
-        result.setClosed(BahnState.BAHN_B.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getBDTO();
     }
 
     @MessageMapping("/openC")
     @SendTo("/anClient/updateOnC")
     public BahnDTO openC(MessageDTO message) {
         BahnState.BAHN_C.setClosed(false);
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getC());
-        result.setAlert(BahnState.BAHN_C.isAlert());
-        result.setClosed(BahnState.BAHN_C.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getCDTO();
     }
 
     @MessageMapping("/closeA")
     @SendTo("/anClient/updateOnA")
     public BahnDTO closeA(MessageDTO message) {
         BahnState.BAHN_A.setClosed(true);
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getA());
-        result.setAlert(BahnState.BAHN_A.isAlert());
-        result.setClosed(BahnState.BAHN_A.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getADTO();
     }
 
     @MessageMapping("/closeB")
     @SendTo("/anClient/updateOnB")
     public BahnDTO closeB(MessageDTO message) {
         BahnState.BAHN_B.setClosed(true);
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getB());
-        result.setAlert(BahnState.BAHN_B.isAlert());
-        result.setClosed(BahnState.BAHN_B.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getBDTO();
     }
 
     @MessageMapping("/closeC")
     @SendTo("/anClient/updateOnC")
     public BahnDTO closeC(MessageDTO message) {
         BahnState.BAHN_C.setClosed(true);
-        BahnDTO result = new BahnDTO();
-        result.setCounter(YamlHandler.getC());
-        result.setAlert(BahnState.BAHN_C.isAlert());
-        result.setClosed(BahnState.BAHN_C.isClosed());
-        result.setShot("");
-        return result;
+        return BahnState.getCDTO();
     }
 }
