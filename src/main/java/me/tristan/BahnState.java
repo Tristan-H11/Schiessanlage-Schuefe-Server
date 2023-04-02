@@ -39,7 +39,7 @@ public class BahnState {
     }
 
     public String getLastShot() {
-        return lastShot;
+        return this.lastShot;
     }
 
     public void setLastShot(String lastShot) {
@@ -47,7 +47,7 @@ public class BahnState {
     }
 
     public int isClosed() {
-        return closed;
+        return this.closed;
     }
 
     public void setClosed(int closed) {
@@ -55,7 +55,7 @@ public class BahnState {
     }
 
     public boolean isAlert() {
-        return alert;
+        return this.alert;
     }
 
     public void setAlert(boolean alert) {

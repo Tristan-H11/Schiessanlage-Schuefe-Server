@@ -33,7 +33,7 @@ public class BahnDTO {
         this.shot = shot;
     }
 
-    public int isClosed() {
+    public int getClosed() {
         return closed;
     }
 

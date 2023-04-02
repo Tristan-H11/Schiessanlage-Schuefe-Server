@@ -19,8 +19,8 @@ public class ShotController {
                 YamlHandler.increaseA();
                 BahnState.BAHN_A.setLastShot("kleiner");
                 break;
-            case "großer":
-                BahnState.BAHN_A.setLastShot("großer");
+            case "grosser":
+                BahnState.BAHN_A.setLastShot("grosser");
                 break;
             case "treffer":
                 BahnState.BAHN_A.setLastShot("treffer");
@@ -39,8 +39,8 @@ public class ShotController {
                 YamlHandler.increaseB();
                 BahnState.BAHN_B.setLastShot("kleiner");
                 break;
-            case "großer":
-                BahnState.BAHN_B.setLastShot("großer");
+            case "grosser":
+                BahnState.BAHN_B.setLastShot("grosser");
                 break;
             case "treffer":
                 BahnState.BAHN_B.setLastShot("treffer");
@@ -59,8 +59,8 @@ public class ShotController {
                 YamlHandler.increaseC();
                 BahnState.BAHN_C.setLastShot("kleiner");
                 break;
-            case "großer":
-                BahnState.BAHN_C.setLastShot("großer");
+            case "grosser":
+                BahnState.BAHN_C.setLastShot("grosser");
                 break;
             case "treffer":
                 BahnState.BAHN_C.setLastShot("treffer");
