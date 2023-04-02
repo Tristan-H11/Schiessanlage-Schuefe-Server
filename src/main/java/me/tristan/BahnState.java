@@ -14,28 +14,31 @@ public class BahnState {
     public BahnState() {
     }
 
-    public static BahnDTO getADTO() {
+    public static BahnDTO getADTO(boolean notify) {
         return new BahnDTO(
                 YamlHandler.getA(),
                 BAHN_A.getLastShot(),
                 BAHN_A.isClosed(),
-                BAHN_A.isAlert());
+                BAHN_A.isAlert(),
+                notify);
     }
 
-    public static BahnDTO getBDTO() {
+    public static BahnDTO getBDTO(boolean notify) {
         return new BahnDTO(
                 YamlHandler.getB(),
                 BAHN_B.getLastShot(),
                 BAHN_B.isClosed(),
-                BAHN_B.isAlert());
+                BAHN_B.isAlert(),
+                notify);
     }
 
-    public static BahnDTO getCDTO() {
+    public static BahnDTO getCDTO(boolean notify) {
         return new BahnDTO(
                 YamlHandler.getC(),
                 BAHN_C.getLastShot(),
                 BAHN_C.isClosed(),
-                BAHN_C.isAlert());
+                BAHN_C.isAlert(),
+                notify);
     }
 
     public String getLastShot() {

@@ -17,7 +17,7 @@ public class AufsichtController {
             throw new RuntimeException(e);
         }
 
-        return BahnState.getADTO();
+        return BahnState.getADTO(false);
     }
 
     @MessageMapping("/aufsichtSetB")
@@ -29,7 +29,7 @@ public class AufsichtController {
             throw new RuntimeException(e);
         }
 
-        return BahnState.getBDTO();
+        return BahnState.getBDTO(false);
     }
 
     @MessageMapping("/aufsichtSetC")
@@ -41,7 +41,7 @@ public class AufsichtController {
             throw new RuntimeException(e);
         }
 
-        return BahnState.getCDTO();
+        return BahnState.getCDTO(false);
     }
 
     @MessageMapping("/refreshAufsicht")

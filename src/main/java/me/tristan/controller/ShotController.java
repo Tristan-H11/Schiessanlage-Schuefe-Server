@@ -28,7 +28,7 @@ public class ShotController {
             default:
                 throw new RuntimeException("unknown shot-type on shotOnA");
         }
-        return BahnState.getADTO();
+        return BahnState.getADTO(true);
     }
 
     @MessageMapping("/shotOnB")
@@ -48,7 +48,7 @@ public class ShotController {
             default:
                 throw new RuntimeException("unknown shot-type on shotOnB");
         }
-        return BahnState.getBDTO();
+        return BahnState.getBDTO(true);
     }
 
     @MessageMapping("/shotOnC")
@@ -68,6 +68,6 @@ public class ShotController {
             default:
                 throw new RuntimeException("unknown shot-type on shotOnC");
         }
-        return BahnState.getCDTO();
+        return BahnState.getCDTO(true);
     }
 }

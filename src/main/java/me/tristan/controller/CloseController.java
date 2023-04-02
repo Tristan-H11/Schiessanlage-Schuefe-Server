@@ -16,7 +16,7 @@ public class CloseController {
     public BahnDTO schreiberOpenA(MessageDTO message) {
         if (BahnState.BAHN_A.isClosed() == 1)
             BahnState.BAHN_A.setClosed(0);
-        return BahnState.getADTO();
+        return BahnState.getADTO(false);
     }
 
     @MessageMapping("/schreiberOpenB")
@@ -24,7 +24,7 @@ public class CloseController {
     public BahnDTO schreiberOpenB(MessageDTO message) {
         if (BahnState.BAHN_B.isClosed() == 1)
             BahnState.BAHN_B.setClosed(0);
-        return BahnState.getBDTO();
+        return BahnState.getBDTO(false);
     }
 
     @MessageMapping("/schreiberOpenC")
@@ -32,7 +32,7 @@ public class CloseController {
     public BahnDTO schreiberOpenC(MessageDTO message) {
         if (BahnState.BAHN_C.isClosed() == 1)
             BahnState.BAHN_C.setClosed(0);
-        return BahnState.getCDTO();
+        return BahnState.getCDTO(false);
     }
 
     @MessageMapping("/schreiberCloseA")
@@ -40,7 +40,7 @@ public class CloseController {
     public BahnDTO schreiberCloseA(MessageDTO message) {
         if (BahnState.BAHN_A.isClosed() == 0)
             BahnState.BAHN_A.setClosed(1);
-        return BahnState.getADTO();
+        return BahnState.getADTO(false);
     }
 
     @MessageMapping("/schreiberCloseB")
@@ -48,7 +48,7 @@ public class CloseController {
     public BahnDTO schreiberCloseB(MessageDTO message) {
         if (BahnState.BAHN_B.isClosed() == 0)
             BahnState.BAHN_B.setClosed(1);
-        return BahnState.getBDTO();
+        return BahnState.getBDTO(false);
     }
 
     @MessageMapping("/schreiberCloseC")
@@ -56,7 +56,7 @@ public class CloseController {
     public BahnDTO schreiberCloseC(MessageDTO message) {
         if (BahnState.BAHN_C.isClosed() == 0)
             BahnState.BAHN_C.setClosed(1);
-        return BahnState.getCDTO();
+        return BahnState.getCDTO(false);
     }
 
     @MessageMapping("/deckungOpenA")
@@ -64,7 +64,7 @@ public class CloseController {
     public BahnDTO deckungOpenA(MessageDTO message) {
         if (BahnState.BAHN_A.isClosed() == 2)
             BahnState.BAHN_A.setClosed(0);
-        return BahnState.getADTO();
+        return BahnState.getADTO(false);
     }
 
     @MessageMapping("/deckungOpenB")
@@ -72,7 +72,7 @@ public class CloseController {
     public BahnDTO deckungOpenB(MessageDTO message) {
         if (BahnState.BAHN_B.isClosed() == 2)
             BahnState.BAHN_B.setClosed(0);
-        return BahnState.getBDTO();
+        return BahnState.getBDTO(false);
     }
 
     @MessageMapping("/deckungOpenC")
@@ -80,7 +80,7 @@ public class CloseController {
     public BahnDTO deckungOpenC(MessageDTO message) {
         if (BahnState.BAHN_C.isClosed() == 2)
             BahnState.BAHN_C.setClosed(0);
-        return BahnState.getCDTO();
+        return BahnState.getCDTO(false);
     }
 
     @MessageMapping("/deckungCloseA")
@@ -88,7 +88,7 @@ public class CloseController {
     public BahnDTO deckungCloseA(MessageDTO message) {
         if (BahnState.BAHN_A.isClosed() == 0)
             BahnState.BAHN_A.setClosed(2);
-        return BahnState.getADTO();
+        return BahnState.getADTO(false);
     }
 
     @MessageMapping("/deckungCloseB")
@@ -96,7 +96,7 @@ public class CloseController {
     public BahnDTO deckungCloseB(MessageDTO message) {
         if (BahnState.BAHN_B.isClosed() == 0)
             BahnState.BAHN_B.setClosed(2);
-        return BahnState.getBDTO();
+        return BahnState.getBDTO(false);
     }
 
     @MessageMapping("/deckungCloseC")
@@ -104,6 +104,6 @@ public class CloseController {
     public BahnDTO deckungCloseC(MessageDTO message) {
         if (BahnState.BAHN_C.isClosed() == 0)
             BahnState.BAHN_C.setClosed(2);
-        return BahnState.getCDTO();
+        return BahnState.getCDTO(false);
     }
 }

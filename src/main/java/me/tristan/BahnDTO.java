@@ -6,15 +6,17 @@ public class BahnDTO {
     private String shot = ""; //großer, kleiner, treffer
     private int closed = 1;
     private boolean alert = false;
+    private boolean notify = false;
 
     public BahnDTO() {
     }
 
-    public BahnDTO(int counter, String shot, int closed, boolean alert) {
+    public BahnDTO(int counter, String shot, int closed, boolean alert, boolean notify) {
         this.counter = counter;
         this.shot = shot;
         this.closed = closed;
         this.alert = alert;
+        this.notify = notify;
     }
 
     public int getCounter() {
@@ -47,5 +49,13 @@ public class BahnDTO {
 
     public void setAlert(boolean alert) {
         this.alert = alert;
+    }
+
+    public boolean isNotify() {
+        return notify;
+    }
+
+    public void setNotify(boolean notify) {
+        this.notify = notify;
     }
 }
