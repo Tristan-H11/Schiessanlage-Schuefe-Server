@@ -11,45 +11,99 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class CloseController {
 
-    @MessageMapping("/openA")
+    @MessageMapping("/schreiberOpenA")
     @SendTo("/anClient/updateOnA")
-    public BahnDTO openA(MessageDTO message) {
-        BahnState.BAHN_A.setClosed(false);
+    public BahnDTO schreiberOpenA(MessageDTO message) {
+        if (BahnState.BAHN_A.isClosed() == 1)
+            BahnState.BAHN_A.setClosed(0);
         return BahnState.getADTO();
     }
 
-    @MessageMapping("/openB")
+    @MessageMapping("/schreiberOpenB")
     @SendTo("/anClient/updateOnB")
-    public BahnDTO openB(MessageDTO message) {
-        BahnState.BAHN_B.setClosed(false);
+    public BahnDTO schreiberOpenB(MessageDTO message) {
+        if (BahnState.BAHN_B.isClosed() == 1)
+            BahnState.BAHN_B.setClosed(0);
         return BahnState.getBDTO();
     }
 
-    @MessageMapping("/openC")
+    @MessageMapping("/schreiberOpenC")
     @SendTo("/anClient/updateOnC")
-    public BahnDTO openC(MessageDTO message) {
-        BahnState.BAHN_C.setClosed(false);
+    public BahnDTO schreiberOpenC(MessageDTO message) {
+        if (BahnState.BAHN_C.isClosed() == 1)
+            BahnState.BAHN_C.setClosed(0);
         return BahnState.getCDTO();
     }
 
-    @MessageMapping("/closeA")
+    @MessageMapping("/schreiberCloseA")
     @SendTo("/anClient/updateOnA")
-    public BahnDTO closeA(MessageDTO message) {
-        BahnState.BAHN_A.setClosed(true);
+    public BahnDTO schreiberCloseA(MessageDTO message) {
+        if (BahnState.BAHN_A.isClosed() == 0)
+            BahnState.BAHN_A.setClosed(1);
         return BahnState.getADTO();
     }
 
-    @MessageMapping("/closeB")
+    @MessageMapping("/schreiberCloseB")
     @SendTo("/anClient/updateOnB")
-    public BahnDTO closeB(MessageDTO message) {
-        BahnState.BAHN_B.setClosed(true);
+    public BahnDTO schreiberCloseB(MessageDTO message) {
+        if (BahnState.BAHN_B.isClosed() == 0)
+            BahnState.BAHN_B.setClosed(1);
         return BahnState.getBDTO();
     }
 
-    @MessageMapping("/closeC")
+    @MessageMapping("/schreiberCloseC")
     @SendTo("/anClient/updateOnC")
-    public BahnDTO closeC(MessageDTO message) {
-        BahnState.BAHN_C.setClosed(true);
+    public BahnDTO schreiberCloseC(MessageDTO message) {
+        if (BahnState.BAHN_C.isClosed() == 0)
+            BahnState.BAHN_C.setClosed(1);
+        return BahnState.getCDTO();
+    }
+
+    @MessageMapping("/deckungOpenA")
+    @SendTo("/anClient/updateOnA")
+    public BahnDTO deckungOpenA(MessageDTO message) {
+        if (BahnState.BAHN_A.isClosed() == 2)
+            BahnState.BAHN_A.setClosed(0);
+        return BahnState.getADTO();
+    }
+
+    @MessageMapping("/deckungOpenB")
+    @SendTo("/anClient/updateOnB")
+    public BahnDTO deckungOpenB(MessageDTO message) {
+        if (BahnState.BAHN_B.isClosed() == 2)
+            BahnState.BAHN_B.setClosed(0);
+        return BahnState.getBDTO();
+    }
+
+    @MessageMapping("/deckungOpenC")
+    @SendTo("/anClient/updateOnC")
+    public BahnDTO deckungOpenC(MessageDTO message) {
+        if (BahnState.BAHN_C.isClosed() == 2)
+            BahnState.BAHN_C.setClosed(0);
+        return BahnState.getCDTO();
+    }
+
+    @MessageMapping("/deckungCloseA")
+    @SendTo("/anClient/updateOnA")
+    public BahnDTO deckungCloseA(MessageDTO message) {
+        if (BahnState.BAHN_A.isClosed() == 0)
+            BahnState.BAHN_A.setClosed(2);
+        return BahnState.getADTO();
+    }
+
+    @MessageMapping("/deckungCloseB")
+    @SendTo("/anClient/updateOnB")
+    public BahnDTO deckungCloseB(MessageDTO message) {
+        if (BahnState.BAHN_B.isClosed() == 0)
+            BahnState.BAHN_B.setClosed(2);
+        return BahnState.getBDTO();
+    }
+
+    @MessageMapping("/deckungCloseC")
+    @SendTo("/anClient/updateOnC")
+    public BahnDTO deckungCloseC(MessageDTO message) {
+        if (BahnState.BAHN_C.isClosed() == 0)
+            BahnState.BAHN_C.setClosed(2);
         return BahnState.getCDTO();
     }
 }

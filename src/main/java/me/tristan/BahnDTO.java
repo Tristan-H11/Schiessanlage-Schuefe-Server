@@ -4,7 +4,7 @@ public class BahnDTO {
 
     private int counter = 0;
     private String shot = ""; //großer, kleiner, treffer
-    private int closed = 1; //
+    private int closed = 1;
     private boolean alert = false;
 
     public BahnDTO() {
