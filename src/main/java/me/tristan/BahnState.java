@@ -6,7 +6,8 @@ public class BahnState {
     public static BahnState BAHN_B = new BahnState();
     public static BahnState BAHN_C = new BahnState();
 
-    private boolean closed = true;
+    // 0 = offen, 1 = schreiber geschlossen, 2 = deckung geschlossen
+    private int closed = 0;
     private boolean alert = false;
     private String lastShot = "";
 
@@ -45,11 +46,11 @@ public class BahnState {
         this.lastShot = lastShot;
     }
 
-    public boolean isClosed() {
+    public int isClosed() {
         return closed;
     }
 
-    public void setClosed(boolean closed) {
+    public void setClosed(int closed) {
         this.closed = closed;
     }
 

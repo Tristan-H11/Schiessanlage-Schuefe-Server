@@ -4,13 +4,13 @@ public class BahnDTO {
 
     private int counter = 0;
     private String shot = ""; //großer, kleiner, treffer
-    private boolean closed = true;
+    private int closed = 1; //
     private boolean alert = false;
 
     public BahnDTO() {
     }
 
-    public BahnDTO(int counter, String shot, boolean closed, boolean alert) {
+    public BahnDTO(int counter, String shot, int closed, boolean alert) {
         this.counter = counter;
         this.shot = shot;
         this.closed = closed;
@@ -33,11 +33,11 @@ public class BahnDTO {
         this.shot = shot;
     }
 
-    public boolean isClosed() {
+    public int isClosed() {
         return closed;
     }
 
-    public void setClosed(boolean closed) {
+    public void setClosed(int closed) {
         this.closed = closed;
     }
 
