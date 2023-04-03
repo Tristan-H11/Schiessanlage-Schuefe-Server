@@ -20,7 +20,7 @@ public class YamlHandler {
     public YamlHandler() {
     }
 
-    public static void initialize() {
+    public synchronized static void initialize() {
         try {
             File file = new File(path.toUri());
             if (!file.exists()) {
@@ -43,7 +43,7 @@ public class YamlHandler {
         System.out.println(counters);
     }
 
-    private static void write() {
+    private synchronized static void write() {
         try (FileWriter writer = new FileWriter(path.toFile())) {
             yaml.dump(counters, writer);
         } catch (IOException e) {
@@ -51,41 +51,41 @@ public class YamlHandler {
         }
     }
 
-    public static void increaseA() {
+    public synchronized static void increaseA() {
         setA(getA() + 1);
     }
 
-    public static int getA() {
+    public synchronized static int getA() {
         return counters.get("a");
     }
 
-    public static void setA(final int value) {
+    public synchronized static void setA(final int value) {
         counters.put("a", value);
         write();
     }
 
-    public static void increaseB() {
+    public synchronized static void increaseB() {
         setB(getB() + 1);
     }
 
-    public static int getB() {
+    public synchronized static int getB() {
         return counters.get("b");
     }
 
-    public static void setB(final int value) {
+    public synchronized static void setB(final int value) {
         counters.put("b", value);
         write();
     }
 
-    public static void increaseC() {
+    public synchronized static void increaseC() {
         setC(getC() + 1);
     }
 
-    public static int getC() {
+    public synchronized static int getC() {
         return counters.get("c");
     }
 
-    public static void setC(final int value) {
+    public synchronized static void setC(final int value) {
         counters.put("c", value);
         write();
     }
