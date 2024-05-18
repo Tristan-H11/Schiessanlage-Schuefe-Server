@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  nsg_server:
+    build: .
+    restart: unless-stopped
+    networks:
+      - proxy
+    expose:
+      - "8080"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.srv_nsg_server.loadbalancer.server.port=8080"
+      - "traefik.http.routers.r_nsg_server.rule=Host(`nsg-server.tristan-hoermann.de`)"
+      - "traefik.http.routers.r_nsg_server.entrypoints=websecure"
+
+networks:
+  proxy:
+    external: true
